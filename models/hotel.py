@@ -7,7 +7,7 @@ from dataclasses import dataclass
 class Hotel:
     """
     Modelo para el registro de un hotel en el sistema.
-    Atributos: id, nombre, dirección, total de habitaciones y habitaciones reservadas.
+    Atributos: id, nombre, dirección, habitaciones disponibles y reservadas.
     """
 
     id: str

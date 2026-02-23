@@ -14,7 +14,9 @@ class CustomerService:
     def create_customer(self, name, email, phone=""):
         """Create"""
         customer_id = str(uuid.uuid4())
-        customer = Customer(id=customer_id, name=name, email=email, phone=phone)
+        customer = Customer(
+            id=customer_id, name=name, email=email, phone=phone
+        )
         customers = self.storage.load_customers()
         customers.append(customer.to_dict())
         self.storage.save_customers(customers)

@@ -11,21 +11,24 @@ class ReservationService:
     def __init__(self, storage=None):
         self.storage = storage or StorageManager()
 
-    def create_reservation(  # pylint: disable=too-many-arguments,too-many-positional-arguments
-        self, customer_id, hotel_id, room_number, check_in, check_out
-    ):
+    # pylint: disable=too-many-arguments,too-many-positional-arguments
+    def create_reservation(
+            self, customer_id, hotel_id, room_number, check_in, check_out):
         """Create"""
         customers = self.storage.load_customers()
         hotels = self.storage.load_hotels()
         if not any(c["id"] == customer_id for c in customers):
             return None
-        hotel_idx = next((i for i, h in enumerate(hotels) if h["id"] == hotel_id), None)
+        hotel_idx = next(
+            (i for i, h in enumerate(hotels) if h["id"] == hotel_id), None
+        )
         if hotel_idx is None:
             return None
 
         hotel = hotels[hotel_idx]
         reserved = set(hotel.get("reserved_rooms", []))
-        if room_number < 1 or room_number > hotel["total_rooms"] or room_number in reserved:
+        if (room_number < 1 or room_number > hotel["total_rooms"]
+                or room_number in reserved):
             return None
 
         reservation_id = str(uuid.uuid4())

@@ -1,4 +1,4 @@
-"""Servicio de hoteles: Create, Delete, Display, Update, Reserve Room, Cancel Reservation."""
+"""Servicio de hoteles: Create, Delete, Display, Update, Reserve, Cancel."""
 
 import uuid
 from models.hotel import Hotel
@@ -45,11 +45,13 @@ class HotelService:
             f"Hotel: {hotel.name}",
             f"  ID: {hotel.id}",
             f"  Dirección: {hotel.address}",
-            f"  Habitaciones: {hotel.available_rooms}/{hotel.total_rooms} disponibles",
+            f"  Habitaciones: {hotel.available_rooms}/{hotel.total_rooms} "
+            f"disponibles",
         ]
         return "\n".join(lines)
 
-    def update_hotel(self, hotel_id, name=None, address=None, total_rooms=None):
+    def update_hotel(self, hotel_id, name=None, address=None,
+                     total_rooms=None):
         """Update"""
         hotels = self.storage.load_hotels()
         for i, h in enumerate(hotels):
@@ -70,7 +72,8 @@ class HotelService:
         for i, h in enumerate(hotels):
             if h["id"] == hotel_id:
                 reserved = set(h.get("reserved_rooms", []))
-                if room_number < 1 or room_number > h["total_rooms"] or room_number in reserved:
+                if (room_number < 1 or room_number > h["total_rooms"]
+                        or room_number in reserved):
                     return False
                 reserved.add(room_number)
                 hotels[i]["reserved_rooms"] = list(reserved)

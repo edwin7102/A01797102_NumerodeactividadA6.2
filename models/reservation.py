@@ -8,7 +8,7 @@ from datetime import date
 class Reservation:
     """
     Representa una reservación asociando un Cliente y un Hotel.
-    Atributos: id, customer_id, hotel_id, room_number, check_in, check_out, status.
+    Atributos: id, customer_id, hotel_id, room_number, check in/out, status.
     """
 
     id: str
