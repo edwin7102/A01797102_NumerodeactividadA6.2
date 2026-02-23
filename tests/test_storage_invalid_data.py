@@ -28,7 +28,7 @@ class TestInvalidFileData(unittest.TestCase):
         return sys.stderr.getvalue()
 
     def test_validacion_1_json_corrupto(self):
-        """Caso 1: JSON con sintaxis inválida - retorna [] y mensaje."""
+        """JSON con sintaxis inválida - retorna mensaje."""
         self.storage._hotels_path.write_text("{ invalid json }")
         result = self.storage.load_hotels()
         self.assertEqual(result, [])
@@ -36,7 +36,7 @@ class TestInvalidFileData(unittest.TestCase):
         self.assertIn("JSON inválido", self._stderr_content())
 
     def test_validacion_2_hotel_campos_faltantes(self):
-        """Caso 2: Hotel con campos obligatorios faltantes - se omite."""
+        """Hotel con campos obligatorios faltantes - se omite."""
         self.storage._hotels_path.write_text("""[
             {"id": "h1", "name": "Madrid", "address": "Addr", "total_rooms": 5,
              "reserved_rooms": []},
@@ -51,7 +51,7 @@ class TestInvalidFileData(unittest.TestCase):
                       self._stderr_content())
 
     def test_validacion_3_hotel_tipo_incorrecto(self):
-        """Caso 3: Hotel con reserved_rooms tipo incorrecto (int) - se omite."""
+        """Hotel con reserved_rooms tipo incorrecto (int) - se omite."""
         self.storage._hotels_path.write_text("""[
             {"id": "h1", "name": "París", "address": "A", "total_rooms": 5,
              "reserved_rooms": 99}
@@ -61,7 +61,7 @@ class TestInvalidFileData(unittest.TestCase):
         self.assertIn("Hotel registro inválido", self._stderr_content())
 
     def test_validacion_4_cliente_estructura_incorrecta(self):
-        """Caso 4: Cliente con estructura/datos inválidos - se omite."""
+        """Cliente con estructura/datos inválidos - se omite."""
         self.storage._customers_path.write_text("""[
             {"id": "c1", "name": "Kylian Mbappé", "email": "mbappe@tecmna.com"},
             {"wrong": "structure", "no_email": true},
@@ -74,7 +74,7 @@ class TestInvalidFileData(unittest.TestCase):
         self.assertIn("Registros inválidos omitidos", self._stderr_content())
 
     def test_validacion_5_reservacion_fecha_invalida(self):
-        """Caso 5: Reservación con fecha en formato inválido - se omite."""
+        """Reservación con fecha en formato inválido - se omite."""
         self.storage._reservations_path.write_text("""[
             {"id": "r1", "customer_id": "c1", "hotel_id": "h1",
              "room_number": 1, "check_in": "2025-01-01",
@@ -89,7 +89,7 @@ class TestInvalidFileData(unittest.TestCase):
         self.assertIn("Reservación registro inválido", self._stderr_content())
 
     def test_validacion_6_registro_no_diccionario(self):
-        """Caso 6: Registro que no es diccionario - se omite."""
+        """Registro que no es diccionario - se omite."""
         self.storage._customers_path.write_text("""[
             {"id": "c1", "name": "Lionel Messi", "email": "messi@tecmna.com"},
             ["lista", "en", "vez", "de", "dict"],
@@ -100,7 +100,7 @@ class TestInvalidFileData(unittest.TestCase):
         self.assertIn("no es diccionario", self._stderr_content())
 
     def test_validacion_7_json_dict_not_list(self):
-        """Caso 7: JSON válido pero es objeto no lista - retorna []."""
+        """JSON válido pero es objeto no lista - retorna []."""
         self.storage._hotels_path.write_text('{"key": "value"}')
         result = self.storage.load_hotels()
         self.assertEqual(result, [])
