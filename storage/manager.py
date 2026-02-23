@@ -24,23 +24,30 @@ class StorageManager:
             return data if isinstance(data, list) else []
 
     def _write_json(self, path, data):
+        """Escribe datos."""
         with open(path, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=2, ensure_ascii=False)
 
     def load_hotels(self):
+        """Carga la lista de hoteles."""
         return self._read_json(self._hotels_path)
 
     def save_hotels(self, hotels):
+        """Guarda la lista de hoteles."""
         self._write_json(self._hotels_path, hotels)
 
     def load_customers(self):
+        """Carga la lista de clientes."""
         return self._read_json(self._customers_path)
 
     def save_customers(self, customers):
+        """Guarda la lista de clientes."""
         self._write_json(self._customers_path, customers)
 
     def load_reservations(self):
+        """Carga la lista de reservaciones."""
         return self._read_json(self._reservations_path)
 
     def save_reservations(self, reservations):
+        """Guarda la lista de reservaciones."""
         self._write_json(self._reservations_path, reservations)

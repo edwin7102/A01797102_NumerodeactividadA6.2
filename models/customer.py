@@ -16,6 +16,7 @@ class Customer:
     phone: str = ""
 
     def to_dict(self) -> dict:
+        """Convertimos a diccionario los datos del cliente."""
         return {
             "id": self.id,
             "name": self.name,
@@ -25,6 +26,7 @@ class Customer:
 
     @classmethod
     def from_dict(cls, data: dict) -> "Customer":
+        """Crea instancia."""
         return cls(
             id=data["id"],
             name=data["name"],

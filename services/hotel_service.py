@@ -6,6 +6,8 @@ from storage.manager import StorageManager
 
 
 class HotelService:
+    """Servicio para manejo de hoteles."""
+
     def __init__(self, storage=None):
         self.storage = storage or StorageManager()
 
@@ -91,6 +93,7 @@ class HotelService:
         return False
 
     def get_hotel(self, hotel_id):
+        """Obtiene un hotel por ID."""
         hotels = self.storage.load_hotels()
         for h in hotels:
             if h["id"] == hotel_id:

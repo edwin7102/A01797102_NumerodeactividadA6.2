@@ -22,9 +22,11 @@ class Hotel:
 
     @property
     def available_rooms(self) -> int:
+        """Retorna el número de habitaciones disponibles."""
         return self.total_rooms - len(self.reserved_rooms)
 
     def to_dict(self) -> dict:
+        """Convertimos a diccionario los datos del hotel."""
         return {
             "id": self.id,
             "name": self.name,
@@ -35,6 +37,7 @@ class Hotel:
 
     @classmethod
     def from_dict(cls, data: dict) -> "Hotel":
+        """Crea instancia."""
         return cls(
             id=data["id"],
             name=data["name"],

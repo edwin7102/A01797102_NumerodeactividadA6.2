@@ -20,6 +20,7 @@ class Reservation:
     status: str = "active"
 
     def to_dict(self) -> dict:
+        """Pasamos a diccionario los datos de la reservación."""
         return {
             "id": self.id,
             "customer_id": self.customer_id,
@@ -32,6 +33,7 @@ class Reservation:
 
     @classmethod
     def from_dict(cls, data: dict) -> "Reservation":
+        """Crea instancia."""
         return cls(
             id=data["id"],
             customer_id=data["customer_id"],

@@ -6,6 +6,8 @@ from storage.manager import StorageManager
 
 
 class CustomerService:
+    """Servicio para gestión de clientes."""
+
     def __init__(self, storage=None):
         self.storage = storage or StorageManager()
 
@@ -57,6 +59,7 @@ class CustomerService:
         return None
 
     def get_customer(self, customer_id):
+        """Obtiene un cliente por ID."""
         customers = self.storage.load_customers()
         for c in customers:
             if c["id"] == customer_id:

@@ -6,10 +6,14 @@ from storage.manager import StorageManager
 
 
 class ReservationService:
+    """Servicio para manejo de reservaciones."""
+
     def __init__(self, storage=None):
         self.storage = storage or StorageManager()
 
-    def create_reservation(self, customer_id, hotel_id, room_number, check_in, check_out):
+    def create_reservation(  # pylint: disable=too-many-arguments,too-many-positional-arguments
+        self, customer_id, hotel_id, room_number, check_in, check_out
+    ):
         """Create"""
         customers = self.storage.load_customers()
         hotels = self.storage.load_hotels()
