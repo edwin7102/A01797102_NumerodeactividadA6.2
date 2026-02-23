@@ -1,0 +1,44 @@
+[
+  {
+    "id": "1770aa09-10b7-48cd-862d-565c0c87040d",
+    "name": "Lionel Messi",
+    "email": "messi@tecmna.com",
+    "phone": ""
+  },
+  {
+    "id": "a3ec4e10-a3a8-4718-ae64-fc64edf845fa",
+    "name": "Cristiano Ronaldo",
+    "email": "ronaldo@tecmna.com",
+    "phone": ""
+  },
+  {
+    "id": "0dc2ff3a-72fa-45e8-9718-03113c64f145",
+    "name": "Kylian Mbappé",
+    "email": "mbappe@tecmna.com",
+    "phone": ""
+  },
+  {
+    "id": "15897fe5-8e03-4fbe-a915-29c40920de68",
+    "name": "Erling Haaland",
+    "email": "haaland@tecmna.com",
+    "phone": ""
+  },
+  {
+    "id": "7c4d46b7-834f-4ec9-9bab-952fd78e6ec4",
+    "name": "Luka Modric",
+    "email": "modric@tecmna.com",
+    "phone": ""
+  },
+  {
+    "id": "286aaf12-4fd7-4bcf-81ca-c6204cda5907",
+    "name": "Luka Modric",
+    "email": "modric@tecmna.com",
+    "phone": ""
+  },
+  {
+    "id": "7b9ef0f9-6140-4e8d-96dd-2b16a9b18c9b",
+    "name": "Luka Modric",
+    "email": "modric@tecmna.com",
+    "phone": ""
+  }
+]

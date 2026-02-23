@@ -1,0 +1,9 @@
+[
+  {
+    "id": "fff2e0fd-541e-41e7-b403-6883ff41d7db",
+    "name": "Barcelona",
+    "address": "Calle 1",
+    "total_rooms": 10,
+    "reserved_rooms": [1]
+  }
+]

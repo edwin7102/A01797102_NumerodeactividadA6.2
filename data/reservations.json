@@ -1,0 +1,11 @@
+[
+  {
+    "id": "17199abe-a46f-4ec4-9509-ed5fd3087f38",
+    "customer_id": "1770aa09-10b7-48cd-862d-565c0c87040d",
+    "hotel_id": "fff2e0fd-541e-41e7-b403-6883ff41d7db",
+    "room_number": 1,
+    "check_in": "2026-02-22",
+    "check_out": "2026-02-22",
+    "status": "active"
+  }
+]
